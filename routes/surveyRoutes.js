@@ -4,6 +4,7 @@ const { URL } = require("url");
 const mongoose = require("mongoose");
 const requireLogin = require("../middlewares/requireLogin");
 const requireCredits = require("../middlewares/requireCredits");
+const requireParams = require("../middlewares/requireParams");
 const Mailer = require("../services/Mailer");
 const surveyTemplate = require("../services/emailTemplates/surveyTemplate");
 
@@ -78,5 +79,11 @@ module.exports = app => {
     } catch (err) {
       res.status(422).send(err);
     }
+  });
+
+  app.delete("/api/surveys/:surveyId", requireLogin, requireParams, async (req, res) => {
+    await Survey.findByIdAndRemove(req.params.surveyId);
+
+    res.send({});
   });
 };

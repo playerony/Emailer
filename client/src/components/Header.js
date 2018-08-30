@@ -9,11 +9,7 @@ class Header extends Component {
 
     switch (auth) {
       case null:
-        return (
-          <div class="progress">
-            <div class="indeterminate" />
-          </div>
-        );
+        return;
       case false:
         return (
           <li>
@@ -23,10 +19,14 @@ class Header extends Component {
       default:
         return [
           <li key="1">
-            <Payments />
+            <a>
+              <Payments />
+            </a>
           </li>,
           <li key="2" style={{ margin: "0 10px" }}>
-            Credits: {this.props.auth.credits}
+            <a>
+              Credits: {this.props.auth.credits}
+            </a>
           </li>,
           <li key="3">
             <a href="/api/logout">Logout</a>
@@ -37,15 +37,15 @@ class Header extends Component {
 
   render() {
     return (
-      <nav>
-        <div className="nav-wrapper">
+      <nav className="nav-wrapper teal lighten-2">
+        <div className="container">
           <Link
             to={this.props.auth ? "/surveys" : "/"}
             className="left brand-logo"
           >
             Emailer
           </Link>
-          <ul className="right ">{this.renderContent()}</ul>
+          <ul className="right">{this.renderContent()}</ul>
         </div>
       </nav>
     );

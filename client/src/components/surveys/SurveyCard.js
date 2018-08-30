@@ -1,9 +1,14 @@
 import React from 'react';
 
-export default ({ id, title, body, dateSent, yes, no, lastResponded }) => {
+export default ({ _id, title, body, dateSent, yes, no, lastResponded, onDelete }) => {
   return (
-    <div className="card darken-1" key={id}>
+    <div className="card darken-1" key={_id}>
       <div className="card-content">
+        <div className="right" onClick={() => onDelete(_id)}>
+          <i className="material-icons">
+            remove
+          </i>
+        </div>
         <span className="card-title">{title}</span>
         <p>{body}</p>
         {lastResponded && 
