@@ -6,11 +6,13 @@ export default ({ id, title, body, dateSent, yes, no, lastResponded }) => {
       <div className="card-content">
         <span className="card-title">{title}</span>
         <p>{body}</p>
+        {lastResponded && 
+          <p className="right">
+            / Last responded: {new Date(lastResponded).toLocaleDateString()}
+          </p>
+        }
         <p className="right">
-          {`
-            Last responded: ${new Date(lastResponded).toLocaleDateString()} /
-            Send on: ${new Date(dateSent).toLocaleDateString()}
-          `}
+          Send on: {new Date(dateSent).toLocaleDateString()}
         </p>
       </div>
       <div className="card-action">
