@@ -1,5 +1,5 @@
 {
-  "name": "client",
+  "name": "Emailer",
   "version": "0.1.0",
   "private": true,
   "proxy": {
@@ -10,6 +10,9 @@
       "target": "http://localhost:5000"
     }
   },
+  "author": "Paweł Wojtasiński",
+  "license": "MIT",
+  "homepage": "https://floating-lake-59666.herokuapp.com",
   "dependencies": {
     "axios": "^0.18.0",
     "lodash": "^4.17.10",

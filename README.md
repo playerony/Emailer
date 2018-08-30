@@ -14,7 +14,7 @@ npm install
 
 ### To run server
 ```bash
-npm start
+npm run dev
 ```
 
 ### License
