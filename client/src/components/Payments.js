@@ -5,17 +5,20 @@ import * as actions from '../actions';
 
 class Payments extends Component {
   render() {
+    const { credits } = this.props;
+
     return (
       <StripeCheckout
         name="Emailer"
-        description="$5 for 5 credits"
-        amount={500}
-        token={token => this.props.handleToken(token)}
+        image="https://d1nhio0ox7pgb.cloudfront.net/_img/o_collection_png/green_dark_grey/512x512/plain/symbol_at.png"
+        description={`$${credits} for ${credits} credits`}
+        amount={credits * 100}
+        token={token => this.props.handleToken(token, credits)}
         stripeKey={process.env.REACT_APP_STRIPE_KEY}
       >
-        <p style={{ margin: '0px' }} >
+        <button className="btn" >
           Add credits
-        </p>
+        </button>
       </StripeCheckout>
     );
   }
