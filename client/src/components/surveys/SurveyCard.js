@@ -13,7 +13,7 @@ export default ({ _id, title, body, dateSent, yes, no, lastResponded, onDelete }
         <p>{body}</p>
         {lastResponded && 
           <p className="right">
-            / Last responded: {new Date(lastResponded).toLocaleDateString()}
+            | Last responded: {new Date(lastResponded).toLocaleDateString()}
           </p>
         }
         <p className="right">
@@ -23,6 +23,7 @@ export default ({ _id, title, body, dateSent, yes, no, lastResponded, onDelete }
       <div className="card-action">
         <a>Yes: {yes}</a>
         <a>No: {no}</a>
+        <a>Total: {yes + no}</a>
       </div>
     </div>
   );

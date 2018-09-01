@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { reduxForm, Field } from "redux-form";
 import { Link } from "react-router-dom";
 import validateEmails from "../../utils/validateEmails";
+import validateEmail from "../../utils/validateEmail";
 import formFields from "./formFields";
 import SurveyField from "./SurveyField";
 
@@ -42,6 +43,7 @@ class SurveyForm extends Component {
 function validate(values) {
   const errors = {};
 
+  errors.reply = validateEmail(values.reply || "");
   errors.recipients = validateEmails(values.recipients || "");
 
   _.each(formFields, ({ name }) => {
